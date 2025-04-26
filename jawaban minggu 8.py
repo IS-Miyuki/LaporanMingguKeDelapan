@@ -5,9 +5,9 @@ import string
 
 "Latihan 8.1"
 def anagram(MainStrings = "",SubStrings = ""):
-    main,sub = [i for i in MainStrings],[i for i in SubStrings]
+    main,sub = [i.lower() for i in MainStrings],[i.lower() for i in SubStrings]
     return (main.sort() == sub.sort())   
-print(anagram("hello","olleh"))
+print(anagram("Hello","Olleh"))
   
 print()  
     
@@ -15,7 +15,10 @@ print()
 def counts(kalimat="",target=""):
     kalimat_lower = kalimat.lower()
     return kalimat_lower.count(target)
-print(counts("Saya mau makan. Makan itu wajib. Mau siangatau malam saya wajib makan","makan"))
+print(counts("""Saya mau makan. Makan itu wajib. 
+             Mau siangatau malam saya wajib makan""","makan"))
+
+
 
 print()
 
@@ -61,7 +64,6 @@ print()
 def AutoPass(teks=""):
     def generate_password(panjang=8):
         karakter = string.ascii_letters + string.digits
-        print(karakter)
         return ''.join(random.choices(karakter, k=panjang))
 
     email_regex = r'\b[\w\.-]+@[\w\.-]+\.\w+\b'
@@ -70,7 +72,7 @@ def AutoPass(teks=""):
     for email in email_list:
         username = email.split('@')[0]
         password = generate_password()
-        print(f"{email} username: {username} , password: {password}")
+        print(f"""{email} username: {username} , password: {password}""")
 teks = """
 Berikut adalah daftar email dan nama pengguna dari mailing list:
 anton@mail.com dimiliki oleh antonius
